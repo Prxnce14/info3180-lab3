@@ -2,6 +2,10 @@ from app import app
 from flask import render_template, request, redirect, url_for, flash
 
 
+# When using Flask-WTF we need to import the Form Class that we created in forms.py
+from .forms import ContactForm
+
+
 ###
 # Routing for your application.
 ###
@@ -15,7 +19,15 @@ def home():
 @app.route('/about/')
 def about():
     """Render the website's about page."""
-    return render_template('about.html', name="Mary Jane")
+    return render_template('about.html', name="Nicholas Joiles")
+
+@app.route('/contact/', methods = ['GET', 'POST' ])
+def contact():
+
+    joiles_form = ContactForm() 
+    """Render the website's contact page"""
+    return render_template('contact.html')
+
 
 
 ###
