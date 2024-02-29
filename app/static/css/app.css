@@ -1,3 +1,54 @@
-body {
+
+
+.foot
+{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #f2f2f2; /* Optional: background color for the footer */
+    padding: 10px 0; /* Optional: padding for the footer */
+    /* z-index: 999;  Ensure the footer is above other content */
+}
+
+.contain
+{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 80px; /* Adjust this value to match the height of your footer */
+}
+
+.my_form_group
+{
+    margin-bottom: 10px; /* Adjust spacing between form groups */
+}
+
+.form-label
+{
+    margin-bottom: 5px; /* Adjust spacing between label and input */
+}
+
+.btn-primary
+{
+    width: 20%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px; /* Adjust spacing between input fields and button */
+    background-color: #106cfc;
+}
+
+body 
+{
     padding-top: 5rem;
+}
+
+hr
+{
+    background-color: #106cfc;
+    height: 2px;
+    width: 60%;
+    border-style: solid;
+
+    
 }

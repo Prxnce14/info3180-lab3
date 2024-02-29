@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <h2>Successful Form Submission</h2>
+    {% include 'myflashes.html' %}
+    <p> <strong>{{name}}</strong>, Thank you for completing the form. </p> 
+    <p> Your <strong>{{subj}}</strong> query is noted and all corespondence will be sent to <strong>{{ email }}</strong>.</p>
+    <p> <strong>  Form comments: </strong>  </p>
+    <p> {{mess}} </p>
+{% endblock %}
+
