@@ -2,6 +2,7 @@ from app import app
 from flask import render_template, request, redirect, url_for, flash
 from app import mail 
 from flask_mail import Message
+from flask import session
 
 
 
@@ -16,7 +17,8 @@ from .forms import ContactForm
 @app.route('/')
 def home():
     """Render website's home page."""
-    return render_template('home.html')
+    ret_data = session.pop('form_data', None)
+    return render_template('home.html', form_data = ret_data)
 
 
 @app.route('/about/')
@@ -60,11 +62,19 @@ def contact():
 
             msg = Message(subs,  
             sender=(alias, elec_mail), 
-            recipients=["to@example.com"]) 
+            recipients=["kemanijoiles@gmail.com"]) 
             msg.body = sms 
             mail.send(msg)
 
-            flash('Completed', 'success')
+            # Storing form data in session
+            session['form_data'] = {
+            'alias': alias,
+            'email': elec_mail,
+            'subject': subs,
+            'message': sms
+            }
+
+            flash('Form Completed', 'success')
             return redirect(url_for('home'))
             #This return is to improves user experience. gives the user feedback based on form completed.
             # return render_template('results.html', name = alias,
